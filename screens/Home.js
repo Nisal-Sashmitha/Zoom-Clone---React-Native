@@ -1,13 +1,22 @@
 import React from 'react';
 import {View} from "react-native";
-import { Header } from 'react-native/Libraries/NewAppScreen';
+import ContactsMenu from '../Components/ContactsMenu';
+import Header from '../Components/Header';
+import MenuButton from '../Components/MenuButton';
+
+
+
 import SearchBar from '../Components/SearchBar';
 
 function Home() {
   return (
     <View>
-      <Header/>
-      <SearchBar/>
+            
+            <Header/>
+            <SearchBar/>
+            <MenuButton/>
+            <ContactsMenu/>
+       
     </View>
   )
 }
