@@ -2,20 +2,49 @@ import React from 'react';
 import { View ,Text, StyleSheet,TouchableOpacity} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+const items = [
+  {
+      id:1,
+      name:"video-camera",
+      title:"New Meeting",
+      customColor:"orange"
+  },
+  {
+      id:2 ,
+      name:"plus-square",
+      title:"Shedule",
+    
+  },
+  {
+      id:3,
+      name:"calendar",
+      title:"Shedule",
+   
+  },
+  {
+      id:4,
+      name:"upload",
+      title:"Share Screen",
+    
+  }
+]
+
 function MenuButton() {
   return (
     <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button}>
+      {items.map((item, index)=>
+        <View key={index} style={styles.buttonContainer}>
+          <TouchableOpacity style={{...styles.button,
+            backgroundColor: item.customColor ? item.customColor:"#0470DC"
+          }}>
             
-            <FontAwesome name={'video-camera'} size={23} color={"#efefef"}/>
+            <FontAwesome name={item.name} size={23} color={"#efefef"}/>
         
           </TouchableOpacity>
-          <Text style={styles.menuText}>New Meeting</Text>
+          <Text style={styles.menuText}>{item.title}</Text>
         </View>
-        <View style={styles.buttonContainer}></View>
-        <View style={styles.buttonContainer}></View>
-        <View style={styles.buttonContainer}></View>
+        )}
+        
     </View>
   )
 }
@@ -34,13 +63,14 @@ const styles = StyleSheet.create({
   button:{
     width:50,
     height:50,
-    backgroundColor:'orange',
+    backgroundColor:'blue',
     borderRadius:15,
     justifyContent:'center',
     alignItems:'center'
   },
   buttonContainer:{
-    alignItems:'center'
+    alignItems:'center',
+    flex:1,
   },
   menuText:{
     color:'#858585',
